@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.license      = { :type => 'WTFPL', :file => 'LICENSE.md' }
 
     s.source       = { :git => 'https://github.com/brynbellomy/ReactiveBoxer.git', :tag => "v#{s.version.to_s}" }
-    s.source_files = "Classes/*.{h,m}"
+    s.source_files = "ReactiveBoxer.h", "Classes/*.{h,m}"
 
     s.requires_arc = true
 
