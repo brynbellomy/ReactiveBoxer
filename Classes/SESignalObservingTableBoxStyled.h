@@ -1,5 +1,5 @@
 //
-//  YDataObservingTableBoxStyled.h
+//  SESignalObservingTableBoxStyled.h
 //  Stan
 //
 //  Created by bryn austin bellomy on 1.15.13.
@@ -9,9 +9,7 @@
 #import <MGBox2/MGTableBoxStyled.h>
 #import <ReactiveCocoa/RACSubscriber.h>
 
-#import "YCommon.h"
-
-@interface YDataObservingTableBoxStyled : MGTableBoxStyled <RACSubscriber>
+@interface SESignalObservingTableBoxStyled : MGTableBoxStyled <RACSubscriber>
 
 @property (nonatomic, strong, readonly)  RACSubject *signal_didUpdateContents;
 

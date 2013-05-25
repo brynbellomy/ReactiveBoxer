@@ -1,38 +1,39 @@
 //
-//  YDataObservingGridBox.m
+//  SESignalObservingGridBox.m
 //  Stan
 //
 //  Created by bryn austin bellomy on 1.16.13.
 //  Copyright (c) 2013 bryn austin bellomy. All rights reserved.
 //
 
+#import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
-#import "YDataObservingGridBox.h"
+#import "SESignalObservingBox.h"
 
-@interface YDataObservingGridBox ()
+@interface SESignalObservingGridBox ()
     @property (nonatomic, strong, readwrite) RACSignal *observedSignal;
 @end
 
 
-@implementation YDataObservingGridBox
+@implementation SESignalObservingGridBox
 
 #pragma mark- Lifecycle
 #pragma mark-
 
 + (instancetype) box
 {
-    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[YDataObservingGridBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
+    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[SESignalObservingGridBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
 }
 
 - (instancetype) init
 {
-    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[YDataObservingGridBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
+    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[SESignalObservingGridBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
     return nil;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame
 {
-    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[YDataObservingGridBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
+    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[SESignalObservingGridBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
     return nil;
 }
 

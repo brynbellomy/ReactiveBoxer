@@ -1,6 +1,6 @@
 //
 //  RACTableBox.h
-//  Beat Bauce
+//  ReactiveBoxer
 //
 //  Created by bryn austin bellomy on 5.24.13.
 //  Copyright (c) 2013 signalenvelope llc. All rights reserved.

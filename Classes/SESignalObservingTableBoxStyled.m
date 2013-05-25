@@ -1,5 +1,5 @@
 //
-//  YDataObservingTableBoxStyled.m
+//  SESignalObservingTableBoxStyled.m
 //  Stan
 //
 //  Created by bryn austin bellomy on 1.15.13.
@@ -7,38 +7,37 @@
 //
 
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <BrynKit/BrynKit.h>
 #import <BrynKit/MGBoxHelpers.h>
 #import <MGBox2/MGLine.h>
 
-#import "YAppDelegate.h"
-#import "YDataObservingTableBoxStyled.h"
-#import "YCommon.h"
+#import "SESignalObservingTableBoxStyled.h"
 
 
-@interface YDataObservingTableBoxStyled ()
+@interface SESignalObservingTableBoxStyled ()
     @property (nonatomic, strong, readwrite) RACSubject *signal_didUpdateContents;
 @end
 
 
-@implementation YDataObservingTableBoxStyled
+@implementation SESignalObservingTableBoxStyled
 
 #pragma mark- Lifecycle
 #pragma mark-
 
 + (instancetype) box
 {
-    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[YDataObservingTableBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
+    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[SESignalObservingTableBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
 }
 
 - (instancetype) init
 {
-    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[YDataObservingTableBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
+    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[SESignalObservingTableBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
     return nil;
 }
 
 - (instancetype) initWithFrame:(CGRect)frame
 {
-    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[YDataObservingTableBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
+    @throw [NSException exceptionWithName:@"NSInternalInconsistencyException" reason:@"You must call -[SESignalObservingTableBox initWithFrame:observedSignal:], the designated initializer." userInfo:nil];
     return nil;
 }
 
@@ -108,7 +107,7 @@
         MGBox *box_spinner = [MGBox boxWithSize: spinner.frame.size];
         [box_spinner addSubview:spinner];
 
-        MGLine *line_spinner = [MGLine lineWithSize:kMGBoxRowSize];
+        MGLine *line_spinner = [MGLine lineWithSize:CGSizeMake(320.0f, 44.0f)];
         line_spinner.middleItems = @[ box_spinner, @"Loading..." ].mutableCopy;
 
         [[RACScheduler mainThreadScheduler] schedule:^{

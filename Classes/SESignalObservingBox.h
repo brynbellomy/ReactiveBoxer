@@ -1,5 +1,5 @@
 //
-//  YDataObservingGridBox.h
+//  SESignalObservingGridBox.h
 //  Stan
 //
 //  Created by bryn austin bellomy on 1.16.13.
@@ -7,11 +7,10 @@
 //
 
 #import <MGBox2/MGTableBoxStyled.h>
-#import <ReactiveCocoa/RACSubscriber.h>
 
-#import "YCommon.h"
+@class RACSignal;
 
-@interface YDataObservingGridBox : MGBox
+@interface SESignalObservingGridBox : MGBox
 
 - (instancetype) initWithObservedSignal:(RACSignal *)observedSignal;
 - (instancetype) initWithFrame:(CGRect)frame observedSignal:(RACSignal *)observedSignal;

@@ -1,6 +1,6 @@
 //
 //  RACTableBox.m
-//  Beat Bauce
+//  ReactiveBoxer
 //
 //  Created by bryn austin bellomy on 5.24.13.
 //  Copyright (c) 2013 signalenvelope llc. All rights reserved.
@@ -11,8 +11,6 @@
 #import <BrynKit/BrynKit.h>
 #import <BrynKit/RACHelpers.h>
 #import "RACTableBox.h"
-#import "SECommon.h"
-#import "SEAppDelegate.h"
 
 
 @interface RACTableBox ()
@@ -54,7 +52,6 @@
 
 - (void) setup
 {
-    lllog(Error, @"calling -setup [self = %@]", self);
     [super setup];
 
     self.internalSubject_didUpdateContents = [RACSubject subject];
@@ -64,8 +61,6 @@
 
 - (void) layout
 {
-    lllog(Error, @"calling -layout [self = %@]", self);
-
     [super layout];
 
     @weakify(self);
@@ -73,7 +68,6 @@
         @strongify(self);
 
         [self.internalSubject_didUpdateContents sendNext:self];
-        lllog(Error, @"finishing call to -layout (signals updated) [self = %@]", self);
     }];
 }
 
