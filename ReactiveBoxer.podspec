@@ -18,16 +18,17 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.dependency 'libextobjc/EXTScope', '>= 0.2.5'
-    s.dependency 'BrynKit', '>= 1.2.3'
     s.dependency 'ObjectiveSugar'
     s.dependency 'ReactiveCocoa', '>= 1.8.0'
 
-    s.dependency 'BrynKit'               , '>= 1.2.3'
-    s.dependency 'BrynKit/RACHelpers'         , '>= 1.2.3'
-    s.dependency 'BrynKit/GCDThreadsafe'      , '>= 1.2.3'
-    s.dependency 'BrynKit/MGBoxHelpers'       , '>= 1.2.3'
-    s.dependency 'BrynKit/EDColor'            , '>= 1.2.3'
-    s.dependency 'BrynKit/CocoaLumberjack'    , '>= 1.2.3'
+    s.dependency 'BrynKit'                    , '~> 1.2.4'
+    s.dependency 'BrynKit/RACHelpers'         , '~> 1.2.4'
+    s.dependency 'BrynKit/GCDThreadsafe'      , '~> 1.2.4'
+    s.dependency 'BrynKit/MGBoxHelpers'       , '~> 1.2.4'
+    s.dependency 'BrynKit/EDColor'            , '~> 1.2.4'
+    s.dependency 'BrynKit/CocoaLumberjack'    , '~> 1.2.4'
+
+
 end
 
 
