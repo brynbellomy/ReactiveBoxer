@@ -6,7 +6,7 @@
 Pod::Spec.new do |s|
     s.platform     = :ios, '5.1'
     s.name         = 'ReactiveBoxer'
-    s.version      = '0.0.1'
+    s.version      = '0.0.2'
     s.author       = { 'bryn austin bellomy' => 'bryn.bellomy@gmail.com' }
     s.summary      = 'Reactive Cocoa + MGBox = unthinkably easy, dynamically-bound iOS layouts.'
     s.homepage     = 'http://github.com/brynbellomy/ReactiveBoxer'
