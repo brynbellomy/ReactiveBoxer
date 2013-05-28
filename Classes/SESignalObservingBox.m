@@ -8,6 +8,8 @@
 
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
+#import <BrynKit/BrynKit.h>
+#import <BrynKit/RACHelpers.h>
 #import "SESignalObservingBox.h"
 
 @interface SESignalObservingGridBox ()
@@ -70,13 +72,14 @@
     // regenerate the box's contents any time generateContentsBlock changes
     //
 
-    yssert(self.observedSignal != nil, @"self.observedSignal is nil.");
-    [self.observedSignal
-        subscribeNext:^(NSOrderedSet *boxes) {
-            @strongify(self);
-            yssert([boxes isKindOfClass:[NSOrderedSet class]], @"Objects sent by the observedSignal must be of type NSOrderedSet.");
-            [self updateContainedBoxes:boxes];
-        }];
+    yssert_notNilAndIsClass(self.observedSignal, RACSignal);
+
+    RACSignal *signal_observedSignalInternalSubscription = [[self.observedSignal
+                                                                 assertIsKindOfClass:[NSOrderedSet class]]
+                                                                 onMainThreadScheduler];
+
+    [self rac_liftSelector: @selector(updateContainedBoxes:)
+               withObjects: signal_observedSignalInternalSubscription];
 }
 
 
@@ -86,6 +89,8 @@
 
 - (void) updateContainedBoxes:(NSOrderedSet *)boxes
 {
+    yssert_onMainThread();
+
     [self.boxes removeAllObjects];
     [self layout];
 

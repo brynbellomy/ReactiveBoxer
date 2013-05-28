@@ -6,29 +6,13 @@
 //  Copyright (c) 2013 signalenvelope llc. All rights reserved.
 //
 
-//#import <ReactiveCocoa/ReactiveCocoa.h>
-//#import <MGBox2/MGBox.h>
-//#import <MGBox2/MGLineStyled.h>
-//
-//@class FIIconView, YInAppProduct, RACFuture;
-//
-//@interface MGLine (RACSupport)
-//
-//+ (instancetype) rac_lineWithLeftSignal:(RACSignal *)signal_left rightSignal:(RACSignal *)signal_right size:(CGSize)size;
-////+ (instancetype) rac_settingsDescriptionBoxWithTextSignal:(RACSignal *)signal_text;
-//
-//@end
-//
-//
-//@interface MGBox (RACSupport)
-//
-//- (void) rac_layoutWithSpeed:(NSTimeInterval)speed sender:(id)sender;
-//- (RACFuture *) setBoxes:(NSMutableOrderedSet *)boxes andLayoutWithSpeed:(NSTimeInterval)speed;
-//
-//@property (nonatomic, strong, readonly) RACSignal *signal_didUpdateContents;
-//
-//@end
+#import <MGBox2/MGBox.h>
 
+@class RACSignal, RACFuture;
 
+@interface MGBox (RACSupport)
 
+- (RACSignal *) rac_onTap;
+- (RACFuture *) bryn_setBoxes:(NSMutableOrderedSet *)boxes andLayoutWithSpeed:(NSTimeInterval)speed;
 
+@end

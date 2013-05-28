@@ -9,6 +9,7 @@
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <BrynKit/BrynKit.h>
 #import <BrynKit/MGBoxHelpers.h>
+#import <BrynKit/RACHelpers.h>
 #import <MGBox2/MGLine.h>
 
 #import "SESignalObservingTableBoxStyled.h"

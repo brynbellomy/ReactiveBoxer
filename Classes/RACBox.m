@@ -9,7 +9,8 @@
 #import <libextobjc/EXTScope.h>
 #import <ReactiveCocoa/ReactiveCocoa.h>
 #import <BrynKit/BrynKit.h>
-#import <BrynKit/MGBoxHelpers.h>
+#import <BrynKit/RACHelpers.h>
+#import <BrynKit/RACFuture.h>
 #import "RACBox.h"
 
 @interface RACBox ()
@@ -34,8 +35,26 @@
     self = [super initWithFrame: CGRectMake(0, 0, size.width, size.height) ];
     if (self)
     {
-        [self rac_liftSelector: @selector(bryn_setBoxes:andLayoutWithSpeed:)
-                   withObjects: [signal_boxes onMainThreadScheduler], @0.3f];
+        RACSignal *signal_layout =
+            [self rac_liftSelector: @selector(bryn_setBoxes:andLayoutWithSpeed:)
+                       withObjects: [signal_boxes onMainThreadScheduler], @0.3f];
+
+        @weakify(self);
+
+        signal_layout = [signal_layout deliverOn: [RACScheduler scheduler]];
+
+        [signal_layout subscribeNext:^(RACFuture *future_layoutFinished) {
+            @strongify(self);
+
+            [future_layoutFinished subscribeCompleted:^{
+                @strongify(self);
+
+                [[RACScheduler scheduler] schedule:^{
+                    @strongify(self);
+                    [self.internalSubject_didUpdateContents sendNext:self];
+                }];
+            }];
+        }];
     }
     return self;
 }
@@ -51,17 +70,17 @@
 
 
 
-- (void) layout
-{
-    [super layout];
-
-    @weakify(self);
-    [[RACScheduler scheduler] schedule:^{
-        @strongify(self);
-
-        [self.internalSubject_didUpdateContents sendNext:self];
-    }];
-}
+//- (void) layout
+//{
+//    [super layout];
+//
+//    @weakify(self);
+//    [[RACScheduler scheduler] schedule:^{
+//        @strongify(self);
+//
+//        [self.internalSubject_didUpdateContents sendNext:self];
+//    }];
+//}
 
 
 
