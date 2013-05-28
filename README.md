@@ -118,3 +118,19 @@ Note: `bryn_layoutWithSpeed:` is a category method bridging ReactiveCocoa's
 abstraction with MGBox's `layoutWithSpeed:completion:` method.  It will be
 moved into **ReactiveBoxer**'s namespace eventually.
 
+
+# why don't i understand this?
+
+learn [ReactiveCocoa](http://github.com/ReactiveCocoa/ReactiveCocoa).  preferably during a long dark winter.
+
+
+
+# authors / contributors
+
+bryn austin bellomy < <bryn.bellomy@gmail.com> >
+
+
+
+# license
+
+wtfpl v2 (see LICENSE.md)
